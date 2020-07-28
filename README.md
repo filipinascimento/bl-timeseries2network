@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/brainlife.app.289)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/brainlife.app.393)
 
 # Conmat 2 Network
 This simple app converts an conmat datatype to a network datatype (JGFZ) so it can be used in the network pipeline.
@@ -18,7 +18,7 @@ This simple app converts an conmat datatype to a network datatype (JGFZ) so it c
 
 ### On Brainlife.io
 
-You can submit this App online at [https://doi.org/10.25663/brainlife.app.289](https://doi.org/10.25663/brainlife.app.289) via the "Execute" tab.
+You can submit this App online at [https://doi.org/10.25663/brainlife.app.393](https://doi.org/10.25663/brainlife.app.393) via the "Execute" tab.
 
 ### Running Locally (on your machine)
 Singularity is required to run the package locally.
