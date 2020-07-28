@@ -1,0 +1,5 @@
+{
+    "index": "data/index.json",
+    "label": "data/label.json",
+    "csv": "data/csv"
+}
