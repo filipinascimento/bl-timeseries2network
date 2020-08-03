@@ -2,7 +2,7 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/brainlife.app.393)
 
 # Conmat 2 Network
-This simple app converts an conmat datatype to a network datatype (JGFZ) so it can be used in the network pipeline.
+This simple app converts a conmat datatype to a network datatype (JGFZ) so it can be used in the network pipeline.
 
 ### Authors
 - [Filipi N. Silva](filsilva@iu.edu)
