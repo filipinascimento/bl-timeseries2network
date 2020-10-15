@@ -4,14 +4,22 @@
 # Conmat 2 Network
 This simple app converts a conmat datatype to a network datatype (JGFZ) so it can be used in the network pipeline.
 
-### Authors
-- [Filipi N. Silva](filsilva@iu.edu)
 
-<!-- ### Contributors
-- Franco Pestilli (franpest@indiana.edu) -->
+### Authors
+- [Filipi N. Silva](https://filipinascimento.github.io)
+
+### Contributors
+- [Franco Pestilli](https://liberalarts.utexas.edu/psychology/faculty/fp4834)
+
 
 ### Funding
-[![NIH-1R01EB029272-01](https://img.shields.io/badge/NIH-1R01EB029272_01-blue.svg)](https://www.nibib.nih.gov/node/113361)
+[![NIH-1R01EB029272-01](https://img.shields.io/badge/NIH-1R01EB029272_01-blue.svg)](https://projectreporter.nih.gov/project_info_description.cfm?aid=9916138&icde=52173380&ddparam=&ddvalue=&ddsub=&cr=1&csb=default&cs=ASC&pball=)
+
+### Citations
+
+1. Bassett, Danielle S., and Olaf Sporns. "Network neuroscience." Nature neuroscience 20, no. 3 (2017): 353. [https://doi.org/10.1038/nn.4502](https://doi.org/10.1038/nn.4502)
+
+2. Costa, L. da F., Francisco A. Rodrigues, Gonzalo Travieso, and Paulino Ribeiro Villas Boas. "Characterization of complex networks: A survey of measurements." Advances in physics 56, no. 1 (2007): 167-242.[https://doi.org/10.1080/00018730601170527](https://doi.org/10.1080/00018730601170527)
 
 
 ## Running the App 
@@ -51,11 +59,6 @@ A sample dataset is provided in folder `data` and `config-sample.json`
 ## Output
 
 The output is a network file containing all the properties from the conmat.
-
-
-<!-- #### Product.json
-
-The secondary output of this app is `product.json`. This file allows web interfaces, DB and API calls on the results of the processing.  -->
 
 ### Dependencies
 
