@@ -1,8 +1,8 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/brain-life/abcd-spec)
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/brainlife.app.393)
 
-# Conmat 2 Network
-This simple app converts a conmat datatype to a network datatype (JGFZ) so it can be used in the network pipeline.
+# Timeseries 2 Network
+This simple app calculates a similarity matrix from time series and convert it to a network datatype (JGFZ) so it can be used in the network pipeline.
 
 
 ### Authors
@@ -10,6 +10,7 @@ This simple app converts a conmat datatype to a network datatype (JGFZ) so it ca
 
 ### Contributors
 - [Franco Pestilli](https://liberalarts.utexas.edu/psychology/faculty/fp4834)
+- [Josh Faskowitz](https://faskowit.github.io/) 
 
 
 ### Funding Acknowledgement
@@ -27,7 +28,6 @@ brainlife.io is publicly funded and for the sustainability of the project it is 
 
 2. Bassett, Danielle S., and Olaf Sporns. "Network neuroscience." Nature neuroscience 20, no. 3 (2017): 353. [https://doi.org/10.1038/nn.4502](https://doi.org/10.1038/nn.4502)
 
-2. Costa, L. da F., Francisco A. Rodrigues, Gonzalo Travieso, and Paulino Ribeiro Villas Boas. "Characterization of complex networks: A survey of measurements." Advances in physics 56, no. 1 (2007): 167-242.[https://doi.org/10.1080/00018730601170527](https://doi.org/10.1080/00018730601170527)
 
 
 ## Running the App 
