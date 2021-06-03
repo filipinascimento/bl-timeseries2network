@@ -1,5 +1,5 @@
 {
-    "timeseries": "data/timeseries.tsv.gz",
-    "metadata": "data/timeseries.json",
+    "tsv": "data/timeseries.tsv.gz",
+    "json": "data/timeseries.json",
     "method": "correlation"
 }
