@@ -35,8 +35,8 @@ else:
 	methodName = "correlation"
 
 
-timeseriesFilename = config["timeseries"]
-metadataFilename = config["metadata"]
+timeseriesFilename = config["tsv"]
+metadataFilename = config["json"]
 
 with open(metadataFilename, "r") as fd:
 	metadata = json.load(fd)
