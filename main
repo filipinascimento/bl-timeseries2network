@@ -12,7 +12,7 @@ set -x
 # ./main.py $networkName $realizations $alpha
 
 chmod +x main.py
-SINGULARITYENV_PYTHONNOUSERSITE=true singularity exec -e docker://filsilva/cxnetwork:0.2.0 ./main.py config.json
+SINGULARITYENV_PYTHONNOUSERSITE=true singularity exec -e docker://filsilva/cxnetwork:0.2.3 ./main.py config.json
 
 echo "done"
 
