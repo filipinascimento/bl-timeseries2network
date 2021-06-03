@@ -10,10 +10,8 @@ import numpy as np
 from tqdm import tqdm
 import igraph as ig
 import jgf
-
-
-def loadCSVMatrix(filename):
-	return np.loadtxt(filename,delimiter=",")
+import pandas as pd
+from nilearn import input_data, connectome
 
 
 configFilename = "config.json"
@@ -31,60 +29,47 @@ if(not os.path.exists(outputDirectory)):
 with open(configFilename, "r") as fd:
 		config = json.load(fd)
 
-# "index": "data/index.json",
-# "label": "data/label.json",
-# "csv": "data/csv",
+if("method" in config):
+	methodName = config["method"]
+else:
+	methodName = "correlation"
 
 
-indexFilename = config["index"]
-labelFilename = config["label"]
-CSVDirectory = config["csv"]
+timeseriesFilename = config["timeseries"]
+metadataFilename = config["metadata"]
 
-with open(indexFilename, "r") as fd:
-	indexData = json.load(fd)
+with open(metadataFilename, "r") as fd:
+	metadata = json.load(fd)
 
-with open(labelFilename, "r") as fd:
-	labelData = json.load(fd)
-	labelDataHasHeader = False
+timeSeries = pd.read_csv(timeseriesFilename,sep="\t")
 
-matrices = []
+columnNames = list(timeSeries.columns)
+
+
 networkProperties = []
-labels = []
-for entry in indexData:
-	entryFilename = entry["filename"]
-	networkPropertiesDictionary = entry.copy()
-	
-	label = ""
-	if("name" in entry):
-		label = entry["name"]
-		del networkPropertiesDictionary["name"]
-	del networkPropertiesDictionary["filename"]
 
-	adjacencyMatrix = loadCSVMatrix(os.path.join(CSVDirectory, entryFilename))
-	matrices.append(adjacencyMatrix)
+#{“covariance”, “correlation”, “partial correlation”, “tangent”, “precision”}
+connobj = connectome.ConnectivityMeasure(kind=methodName)
+connmat = connobj.fit_transform([timeSeries.to_numpy()])[0]
+
+# remove diagonal
+np.fill_diagonal(connmat, 0)
 
 
-	if(len(labelData)>len(adjacencyMatrix)):
-		for key,value in labelData[0].items():
-			networkPropertiesDictionary["extra_"+key] = value
-		labelDataHasHeader = True
-	
-	networkProperties.append(networkPropertiesDictionary)
-	labels.append(label)
 
-if(labelDataHasHeader):
-	labelData = labelData[1:]
 
 nodesProperties = OrderedDict()
-if(len(labelData)>0):
-		for nodeIndex,labelInformation in enumerate(labelData):
-			for key,value in labelInformation.items():
-				if(key not in nodesProperties):
-					nodesProperties[key] = OrderedDict()
-				nodesProperties[key][nodeIndex] = value
+nodesProperties["label"] = columnNames;
+for nodeIndex,nodeInformation in enumerate(metadata):
+	for key,value in nodeInformation.items():
+		if(key not in nodesProperties):
+			nodesProperties[key] = OrderedDict()
+		nodesProperties[key][nodeIndex] = value
 
-jgf.conmat.save(matrices,outputFile, compressed=True,
-	label=labels,
-	networkProperties=networkProperties,
+
+jgf.conmat.save([connmat],outputFile, compressed=True,
+	label="network",
+	networkProperties={"type":methodName},
 	nodeProperties=nodesProperties)
+
 
