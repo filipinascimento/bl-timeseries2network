@@ -1,5 +1,4 @@
 {
-    "index": "data/index.json",
-    "label": "data/label.json",
-    "csv": "data/csv"
+    "timeseries": "data/timeseries.tsv.gz",
+    "metadata": "data/timeseries.json"
 }
