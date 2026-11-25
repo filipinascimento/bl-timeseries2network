@@ -2,6 +2,48 @@
 [![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.1-blue.svg)](https://doi.org/10.25663/brainlife.app.393)
 
 # Timeseries 2 Network
+
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+> **Computes a connectivity matrix (correlation, covariance, partial correlation, tangent or precision) from regional time series with nilearn and saves it as a network (JGFZ) for the brainlife network pipeline.**
+
+Reads a TSV of time series (one column per node) and its JSON node metadata, computes the chosen nilearn ConnectivityMeasure, zeroes the diagonal and writes a weighted network in compressed JSON Graph Format with the column names and metadata as node properties. Use it to turn parcel-wise fMRI time series into a functional connectivity network for later network analyses.
+
+| | |
+|---|---|
+| 📥 **Inputs** | `generic/timeseries` |
+| 📤 **Outputs** | `generic/network` |
+| 🐳 **Container** | `filsilva/cxnetwork:0.2.3` |
+| ⚙️ **Resources** | 1 CPUs |
+| 🔗 **Run it** | [doi.org/10.25663/brainlife.app.532](https://doi.org/10.25663/brainlife.app.532) |
+
+#### 📥 Inputs
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `timeseries` | `generic/timeseries` | yes | Input time series used to construct the connectivity matrices. TSV with one column per node (column headers become node labels) and a JSON list with one metadata entry per node. |
+
+#### 📤 Outputs
+
+| Output | Datatype | Description |
+|---|---|---|
+| `output` | `generic/network` | Network generated from the connectivity matrix |
+
+<details>
+<summary><b>⚙️ Parameters</b> (1)</summary>
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `method` | enum | `correlation` | Measure of similarity used to create the connectivity matrix. [1] G. Varoquaux et al. “Detection of brain functional-connectivity difference in post-stroke patients using group-level covariance modeling, MICCAI 2010. Options: `correlation`, `covariance`, `partial correlation`, `tangent`, `precision`. |
+
+</details>
+
+📚 **References used by this App:**
+- Avesani P. et al. The open diffusion data derivatives, brain data upcycling via integrated publishing of derivatives and reproducible open cloud services. Sci Data 6, 69 (2019). [doi:10.1038/s41597-019-0073-y](https://doi.org/10.1038/s41597-019-0073-y)
+- Bassett D. S., Sporns O. Network neuroscience. Nature Neuroscience 20(3):353 (2017). [doi:10.1038/nn.4502](https://doi.org/10.1038/nn.4502)
+
+<!-- brainlife-app:end -->
+
 This simple app calculates a similarity matrix from time series and convert it to a network datatype (JGFZ) so it can be used in the network pipeline.
 
 
